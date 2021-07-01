@@ -13,8 +13,10 @@ const smsCanvas = css`
 
 const input = css`
   width: 100%;
+  
   textarea {
     padding: 6px 12px 7px 12px !important;
+    color: "black";
   }
 `
 
@@ -57,13 +59,23 @@ export class OutboundSmsView extends React.Component {
       <div css={smsCanvas}>
         <div>
           <TextField
+            required
             id='To'
             label='To'
+            css={input}
             css={input}
             value={this.state.To}
             onChange={this.handleChange('To')}
             margin='normal'
             variant='outlined'
+            InputProps={{
+              style: {
+                  color: "black"
+              }
+            }}
+            InputLabelProps={{
+              style: { color: 'black' },
+            }}
           />
           <TextField
             id='From'
@@ -73,6 +85,14 @@ export class OutboundSmsView extends React.Component {
             onChange={this.handleChange('From')}
             margin='normal'
             variant='outlined'
+            InputProps={{
+              style: {
+                  color: "black"
+              }
+            }}
+            InputLabelProps={{
+              style: { color: 'black' },
+            }}
           />
           <TextField
             id='Message'
@@ -84,6 +104,14 @@ export class OutboundSmsView extends React.Component {
             onChange={this.handleChange('Message')}
             margin='normal'
             variant='outlined'
+            InputProps={{
+              style: {
+                  color: "black"
+              }
+            }}
+            InputLabelProps={{
+              style: { color: 'black' },
+            }}
           />
         </div>
         <Button variant='contained' color='primary' onClick={e => this.startSMS()}>Submit</Button>
@@ -94,9 +122,9 @@ export class OutboundSmsView extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    url: state.flex.config.serviceBaseUrl.slice(0,5) === 'https'
-      ? (state.flex.config.serviceBaseUrl.slice(-1) === '/' ? state.flex.config.serviceBaseUrl.substring(0, state.flex.config.serviceBaseUrl.length - 1) : state.flex.config.serviceBaseUrl)
-      : ('https://' + (state.flex.config.serviceBaseUrl.slice(-1) === '/' ? state.flex.config.serviceBaseUrl.substring(0, state.flex.config.serviceBaseUrl.length - 1) : state.flex.config.serviceBaseUrl))
+    url: process.env.REACT_APP_SERVICE_BASE_URL.slice(0,5) === 'https'
+      ? (process.env.REACT_APP_SERVICE_BASE_URL.slice(-1) === '/' ? process.env.REACT_APP_SERVICE_BASE_URL.substring(0, process.env.REACT_APP_SERVICE_BASE_URL.length - 1) : process.env.REACT_APP_SERVICE_BASE_URL)
+      : ('https://' + (process.env.REACT_APP_SERVICE_BASE_URL.slice(-1) === '/' ? process.env.REACT_APP_SERVICE_BASE_URL.substring(0, process.env.REACT_APP_SERVICE_BASE_URL.length - 1) : process.env.REACT_APP_SERVICE_BASE_URL))
   }
 }
 
