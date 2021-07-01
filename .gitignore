@@ -1,0 +1,7 @@
+node_modules
+logs
+dist
+DS_Store
+.DS_Store
+EnvironmentVariables/*
+!EnvironmentVariables/local
