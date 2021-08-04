@@ -2,6 +2,8 @@ import { FlexPlugin } from 'flex-plugin';
 import React from 'react';
 import OutboundSmsButton from './OutboundSmsButton';
 import OutboundSmsView from './OutboundSmsView';
+import ClientListTask from './Components/ClientListTask';
+
 
 export default class OutboundSmsPlugin extends FlexPlugin {
   name = 'OutboundSmsPlugin';
@@ -17,6 +19,7 @@ export default class OutboundSmsPlugin extends FlexPlugin {
     flex.ViewCollection.Content.add(
       <flex.View name="sms" key="outbound-sms-view-parent">
         <OutboundSmsView key="outbound-sms-view" jweToken={jweToken} />
+        <ClientListTask key="ClientListTask" />
       </flex.View>
     );
   }

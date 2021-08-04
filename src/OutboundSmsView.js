@@ -12,7 +12,7 @@ const smsCanvas = css`
 `
 
 const input = css`
-  width: 100%;
+  width: 85%;
   
   textarea {
     padding: 6px 12px 7px 12px !important;
